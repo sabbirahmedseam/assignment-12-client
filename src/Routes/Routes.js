@@ -7,6 +7,7 @@ import Normal from "../Home/Normal";
 import Racing from "../Home/Racing";
 import Registration from "../Home/Registration";
 import Main from "../Layout/Main";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -16,19 +17,32 @@ const router = createBrowserRouter([
       { path: "/", element: <Home></Home> },
       {
         path: "/racing/:id",
-        element: <Racing></Racing>,
+        element: (
+          <PrivateRoutes>
+            <Racing></Racing>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
       },
       {
         path: "/general/:id",
-        element: <General></General>,
+        element: (
+          <PrivateRoutes>
+            {" "}
+            <General></General>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
       },
       {
         path: "/normal/:id",
-        element: <Normal></Normal>,
+        element: (
+          <PrivateRoutes>
+            <Normal></Normal>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/category/${params.id}`),
       },

@@ -8,12 +8,15 @@ import useToken from "../Hooks/useToken";
 // import useToken from "../../hooks/useToken";
 const LogIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
+  const from = location?.state?.pathname;
   const [actEmail, setActEmail] = useState(null);
   const [token, tkLoad] = useToken(actEmail);
   const { signIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   if (token) {
-    navigate("/blog");
+    navigate(from, { replace: true });
   }
 
   const {
