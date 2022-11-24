@@ -1,17 +1,44 @@
 [
   {
-    "name": "racing",
+    "type": "Racing",
+    "name": "YAMAHA R1M",
     "ctg_id": "1",
-    "brand": "yamaha"
+    "brand": "Yamaha",
+    "image": "https://i.ibb.co/sKLnQ4B/race-bike-wallpaper-87766.jpg",
+    "location": "Mirpur",
+    "oirginal_price": "15000$",
+    "resale_price": "12000$",
+    "usase_years": "12.2 months",
+    "date": "24-Nov-22",
+    "seller_name": "Seam",
+    "condition": "Excellent"
   },
   {
-    "name": "racing",
+    "type": "General",
+    "name": "YAMAHA R15",
     "ctg_id": "2",
-    "brand": "yamaha"
+    "brand": "Yamaha",
+    "image": "https://i.ibb.co/ck533dS/43177-ANI8066.jpg",
+    "location": "Uttara",
+    "oirginal_price": "11000$",
+    "resale_price": "9000$",
+    "usase_years": "8 months",
+    "date": "25-Nov-22",
+    "seller_name": "Ahmed",
+    "condition": "Good"
   },
   {
-    "name": "racing",
+    "type": "Normal",
+    "name": "Hero Hunk",
     "ctg_id": "3",
-    "brand": "yamaha"
+    "brand": "HERO HONDA",
+    "image": "https://i.ibb.co/7Ghdg21/hunk-1.jpg",
+    "location": "Farmgate",
+    "oirginal_price": "1300$",
+    "resale_price": "900$",
+    "usase_years": "1.7months",
+    "date": "27-Nov-22",
+    "seller_name": "Sabbir",
+    "condition": "Fair"
   }
 ]
