@@ -11,12 +11,12 @@ const Registration = () => {
     useContext(AuthContext);
   const navigate = useNavigate();
   const [actEmail, setActEmail] = useState(null);
-  const [token, tkLoad] = useToken(actEmail);
+  const [token] = useToken(actEmail);
   const [seller, setSeller] = useState(false);
   const [buyer, setBuyer] = useState(false);
   const [value, setValue] = useState("");
   const [loginError, setLoginError] = useState("");
-  if (loading || tkLoad) {
+  if (loading) {
     <Loading></Loading>;
   }
   if (token) {
@@ -84,10 +84,29 @@ const Registration = () => {
 
   // google sign in
   const handleGoogle = () => {
-    setBuyer("user");
-    setSeller(false);
     googleSignIn()
-      .then(() => {})
+      .then((res) => {
+        const data = res.user;
+        const email = data.email;
+        const name = data.displayName;
+        let role = "user";
+        const user = { email, name, role };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            setActEmail(email);
+            toast.success("user added successfully");
+            navigate("/");
+          });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -144,22 +163,25 @@ const Registration = () => {
               <p className="text-red-600">{errors.password?.message}</p>
             )}
           </div>
-          <span>Registration as a</span>
-          <button
-            onClick={() => handleBuyer()}
-            className="btn"
-            disabled={buyer}
-          >
-            user
-          </button>
-          /
-          <button
-            disabled={seller}
-            onClick={() => handleSeller()}
-            className="btn"
-          >
-            seller
-          </button>
+          <div className="mt-3">
+            <span>Registration as a</span>
+
+            <button
+              onClick={() => handleBuyer()}
+              className="btn btn-sm"
+              disabled={buyer}
+            >
+              user
+            </button>
+
+            <button
+              disabled={seller}
+              onClick={() => handleSeller()}
+              className="btn btn-sm"
+            >
+              seller
+            </button>
+          </div>
           {(seller || buyer) && (
             <>
               <input

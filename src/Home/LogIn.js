@@ -1,3 +1,4 @@
+import { fromJSON } from "postcss";
 import React, { useContext, useState } from "react";
 // import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -7,17 +8,17 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import useToken from "../Hooks/useToken";
 // import useToken from "../../hooks/useToken";
 const LogIn = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  console.log(location);
-  const from = location?.state?.pathname;
-  const [actEmail, setActEmail] = useState(null);
-  const [token, tkLoad] = useToken(actEmail);
-  const { signIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
-  if (token) {
-    navigate(from, { replace: true });
-  }
+  const { signIn } = useContext(AuthContext);
+  const [actEmail, setActEmail] = useState("");
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const [token] = useToken(actEmail,from);
+
+
+  
 
   const {
     register,
@@ -87,14 +88,13 @@ const LogIn = () => {
           />
           {loginError && <p className="text-red-500">{loginError}</p>}
         </form>
-        <p>
-          New to assignment12?
+        <p className="my-3">
+          New to Resale Bike Hunt?
           <Link className="text-accent" to="/registration">
             Create new account
           </Link>
         </p>
-        <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
+       
       </div>
     </div>
   );

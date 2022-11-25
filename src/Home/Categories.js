@@ -5,42 +5,45 @@ const Categories = () => {
   const categories = [
     {
       name: "Racing",
-      img: "https://i.ibb.co/VY1VgQq/images-q-tbn-ANd9-Gc-Qz-Bd-LUx0-XVr-Vb-pqm-N0-NHIq0h-Hv2k-FCNw2-PQ-usqp-CAU.jpg",
+      img: "https://i.ibb.co/qB4fk0x/images-q-tbn-ANd9-Gc-Rw-Va54-Mj-EDSz-0zk9-CSECGUc-VJl-Gwp-Pb-Fmw-usqp-CAU.jpg",
       link: "racing",
       id: 1,
     },
     {
       name: "General",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC4YZ7rdmJJ96TD0Z1VApBQZUJiJDkuhIjTA&usqp=CAU",
+      img: "https://i.ibb.co/ck533dS/43177-ANI8066.jpg",
       link: "general",
       id: 2,
     },
     {
       name: "Normal",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfYFy_IBklziVCHthccklLKiIeLrQiXX2h8g&usqp=CAU",
+      img: "https://i.ibb.co/qNgzLvQ/pulsar-1-20181127.jpg",
       link: "normal",
       id: 3,
     },
   ];
 
   return (
-    <div className="grid grid-cols-3 gap-3">
-      {categories.map((ctg, idx) => (
-        <div key={idx} className="card card-compact  bg-base-100 shadow-xl">
-          <figure>
-            <img src={ctg.img} alt="Shoes" />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{ctg.name}!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <Link to={`/${ctg.link}/${ctg.id}`}>
-                <button className="btn btn-primary">Show All</button>
-              </Link>
+    <div>
+      <h2 className="text-5xl text-center my-12">We are Providig All three categories</h2>
+      <div className="grid grid-cols-3 gap-3">
+        {categories.map((ctg, idx) => (
+          <div key={idx} className="card card-compact  bg-base-100 shadow-xl">
+            <figure className=" h-[189px]">
+              <img src={ctg.img} alt="Shoes" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{ctg.name}!</h2>
+
+              <div className="card-actions justify-end">
+                <Link to={`/${ctg.link}/${ctg.id}`}>
+                  <button className="btn btn-primary">Show All</button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
