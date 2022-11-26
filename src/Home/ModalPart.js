@@ -87,7 +87,7 @@ const ModalPart = ({ itemInfo, setItemInfo }) => {
               type="text"
               name="resale_price"
               disabled
-              value={`${resale_price}$`}
+              value={resale_price}
               className="input w-full input-bordered"
             />
             <input
