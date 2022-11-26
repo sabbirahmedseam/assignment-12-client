@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ModalPart from "./ModalPart";
 import { HiCheckBadge } from "react-icons/hi2";
-
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Racing = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const categories = useLoaderData();
   console.log(categories);
   const [itemInfo, setItemInfo] = useState(null);
@@ -24,7 +26,7 @@ const Racing = () => {
               <h2 className="card-title">Model : {ctg.model}</h2>
               <h2 className="card-title">Condition : {ctg.condition}</h2>
               <h2 className="card-title">
-                Sellar Name : {ctg.name}{" "}
+                Sellar Name : {ctg.name}
                 {ctg?.sellarVerified ? (
                   <HiCheckBadge className="text-blue-500"></HiCheckBadge>
                 ) : (

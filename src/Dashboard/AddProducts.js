@@ -60,7 +60,7 @@ const AddProducts = () => {
   };
 
   return (
-    <div className="w-1/2">
+    <div className="w-1/2 my-10">
       <h2 className="text-3xl text-center">Add Your Products</h2>
 
       <form onSubmit={handleBooking} className="grid gap-3">

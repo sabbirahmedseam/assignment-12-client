@@ -16,6 +16,7 @@ const MyOrders = () => {
       return data;
     },
   });
+  console.log(cars);
 
   return (
     <div className="overflow-x-auto">
@@ -48,7 +49,13 @@ const MyOrders = () => {
               <td>{car.model}</td>
               <td>
                 <Link to={`/dashboard/payment/${car._id}`}>
-                  <button className="btn btn-primary">Pay</button>
+                  {car.paid ? (
+                    <button className="btn btn-primary" disabled>
+                      Paid
+                    </button>
+                  ) : (
+                    <button className="btn btn-primary">Pay</button>
+                  )}
                 </Link>
               </td>
             </tr>

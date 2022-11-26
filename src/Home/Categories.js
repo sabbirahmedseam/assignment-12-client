@@ -24,8 +24,10 @@ const Categories = () => {
   ];
 
   return (
-    <div>
-      <h2 className="text-5xl text-center my-12">We are Providig All three categories</h2>
+    <div className="my-5">
+      <h2 className="text-5xl text-center my-12 text-primary font-bold">
+        We are Providing All three categories Bike
+      </h2>
       <div className="grid grid-cols-3 gap-3">
         {categories.map((ctg, idx) => (
           <div key={idx} className="card card-compact  bg-base-100 shadow-xl">

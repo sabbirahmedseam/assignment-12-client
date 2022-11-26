@@ -6,7 +6,7 @@ const ModalPart = ({ itemInfo, setItemInfo }) => {
   const { user } = useContext(AuthContext);
   console.log(user);
   console.log(itemInfo);
-  const { model, brand, resale_price, image } = itemInfo;
+  const { model, brand, resale_price, image, _id } = itemInfo;
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -14,6 +14,7 @@ const ModalPart = ({ itemInfo, setItemInfo }) => {
     const name = form.name.value;
     const phone = form.phone.value;
     const email = form.email.value;
+    const resale_product_id = _id;
     const brand = form.brand.value;
     const price = form.resale_price.value;
     const location = form.location.value;
@@ -21,13 +22,14 @@ const ModalPart = ({ itemInfo, setItemInfo }) => {
       name,
       phone,
       image,
+      resale_product_id,
       model,
       email,
       brand,
       price,
       location,
     };
-    console.log(cndCar);
+    console.log(cndCar.price);
     fetch("http://localhost:5000/bookedCar", {
       method: "POST",
       headers: {

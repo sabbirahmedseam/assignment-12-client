@@ -12,7 +12,7 @@ const CheckOutFormOut = ({ booking }) => {
   const [cardError, setCardError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const { price, name, email } = booking;
+  const { price, name, email, _id } = booking;
   console.log(price);
 
   useEffect(() => {
@@ -62,8 +62,25 @@ const CheckOutFormOut = ({ booking }) => {
       return;
     }
     if (paymentIntent.status === "succeeded") {
-      setSuccess("congress your payment is completed");
-      setTransactionId(paymentIntent.id);
+      const payment = {
+        price,
+        email,
+        transactionId: paymentIntent.id,
+        bookingId: _id,
+      };
+      fetch(`http://localhost:5000/payments`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setSuccess("congress your payment is completed");
+          setTransactionId(paymentIntent.id);
+        });
     }
     setProcessing(false);
   };
@@ -89,7 +106,7 @@ const CheckOutFormOut = ({ booking }) => {
       <button
         className="btn btn-sm btn-accent mt-4"
         type="submit"
-        disabled={!stripe || !clientSecret||processing}
+        disabled={!stripe || !clientSecret || processing}
       >
         Pay
       </button>
@@ -98,7 +115,7 @@ const CheckOutFormOut = ({ booking }) => {
         <div>
           <p className="text-green-500">{success}</p>
           <p>
-            Your transactionId:{" "}
+            Your transactionId:
             <span className="font-bold">{transactionId}</span>
           </p>
         </div>

@@ -39,6 +39,9 @@ const Dashboard = () => {
                 <li>
                   <Link to="/dashboard/sellarproduct">My Products</Link>
                 </li>
+                <li>
+                  <Link to="/dashboard/adddvertise">Addvertise Products</Link>
+                </li>
               </>
             )}
             {isAdmin && (

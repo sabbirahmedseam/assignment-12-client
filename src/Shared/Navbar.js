@@ -35,7 +35,7 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <Link to="/login">Sign in</Link>
+            <Link to="/login">Log in</Link>
           </li>
           <li>
             <Link to="/registration">Registration</Link>
