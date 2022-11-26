@@ -44,7 +44,7 @@ const AddProducts = () => {
       location,
     };
     console.log(addCar);
-    fetch("http://localhost:5000/sellarAddCar", {
+    fetch("https://assignment-12-server-chi.vercel.app/sellarAddCar", {
       method: "POST",
       headers: {
         "content-type": "application/json",

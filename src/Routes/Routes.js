@@ -35,7 +35,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(
+            `https://assignment-12-server-chi.vercel.app/category/${params.id}`
+          ),
       },
       {
         path: "/general/:id",
@@ -45,7 +47,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(
+            `https://assignment-12-server-chi.vercel.app/category/${params.id}`
+          ),
       },
       {
         path: "/normal/:id",
@@ -55,7 +59,9 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(
+            `https://assignment-12-server-chi.vercel.app/category/${params.id}`
+          ),
       },
       { path: "/blog", element: <Blog></Blog> },
       { path: "/login", element: <LogIn></LogIn> },
@@ -88,7 +94,9 @@ const router = createBrowserRouter([
           </UserRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/getpayment/${params.id}`),
+          fetch(
+            `https://assignment-12-server-chi.vercel.app/getpayment/${params.id}`
+          ),
       },
       {
         path: "/dashboard/sellaradd",

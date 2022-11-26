@@ -6,7 +6,9 @@ const AllTheUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/getalltheusers`);
+      const res = await fetch(
+        `https://assignment-12-server-chi.vercel.app/getalltheusers`
+      );
       const data = await res.json();
       return data;
     },
@@ -14,7 +16,7 @@ const AllTheUsers = () => {
   const handleDlt = (id) => {
     console.log(id);
 
-    fetch(`http://localhost:5000/userdelete/${id}`, {
+    fetch(`https://assignment-12-server-chi.vercel.app/userdelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

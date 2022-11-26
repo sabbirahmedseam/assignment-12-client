@@ -30,7 +30,7 @@ const ModalPart = ({ itemInfo, setItemInfo }) => {
       location,
     };
     console.log(cndCar.price);
-    fetch("http://localhost:5000/bookedCar", {
+    fetch("https://assignment-12-server-chi.vercel.app/bookedCar", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -10,7 +10,7 @@ const MyProducts = () => {
     queryKey: ["products"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/myproduct?email=${user?.email}`
+        `https://assignment-12-server-chi.vercel.app/myproduct?email=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -19,7 +19,7 @@ const MyProducts = () => {
   console.log(products);
 
   const handleDlt = (id) => {
-    fetch(`http://localhost:5000/mydeleteproduct/${id}`, {
+    fetch(`https://assignment-12-server-chi.vercel.app/mydeleteproduct/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -68,7 +68,7 @@ const MyProducts = () => {
     };
     // console.log(addvertiseCar);
 
-    fetch(`http://localhost:5000/advertise`, {
+    fetch(`https://assignment-12-server-chi.vercel.app/advertise`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,8 +81,6 @@ const MyProducts = () => {
         toast.success("Advertise car  successfully");
       });
   };
-
-  
 
   return (
     <div className="overflow-x-auto">

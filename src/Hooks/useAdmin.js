@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 const useAdmin = (email) => {
- 
   const [isAdmin, setIsAdmin] = useState(null);
   const [adminLoad, setAdminLoad] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/user/wanted?email=${email}`)
+      fetch(
+        `https://assignment-12-server-chi.vercel.app/user/wanted?email=${email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data.message);

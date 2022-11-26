@@ -8,7 +8,9 @@ const Home = () => {
   const { data: products = [] } = useQuery({
     queryKey: ["advertise"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/getadvertise`);
+      const res = await fetch(
+        `https://assignment-12-server-chi.vercel.app/getadvertise`
+      );
       const data = await res.json();
       return data;
     },
@@ -32,7 +34,7 @@ const Home = () => {
             : ""}
         </div>
       </div>
-     
+
       <Categories></Categories>
     </div>
   );

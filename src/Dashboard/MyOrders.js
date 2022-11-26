@@ -10,7 +10,7 @@ const MyOrders = () => {
     queryKey: ["cars", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/getBookedCar?email=${user?.email}`
+        `https://assignment-12-server-chi.vercel.app/getBookedCar?email=${user?.email}`
       );
       const data = await res.json();
       return data;

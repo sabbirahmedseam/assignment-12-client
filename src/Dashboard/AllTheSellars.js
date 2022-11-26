@@ -6,7 +6,9 @@ const AllTheSellars = () => {
   const { data: sellars = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/getallthesellars`);
+      const res = await fetch(
+        `https://assignment-12-server-chi.vercel.app/getallthesellars`
+      );
       const data = await res.json();
       return data;
     },
@@ -14,7 +16,7 @@ const AllTheSellars = () => {
   // console.log(sellars);
   console.log(sellars[2]?.sellarVerified);
   const handleVerify = (id) => {
-    fetch(`http://localhost:5000/verify/${id}`, {
+    fetch(`https://assignment-12-server-chi.vercel.app/verify/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -25,7 +27,7 @@ const AllTheSellars = () => {
       });
   };
   const handleDlt = (id) => {
-    fetch(`http://localhost:5000/mydeleteproduct/${id}`, {
+    fetch(`https://assignment-12-server-chi.vercel.app/mydeleteproduct/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -6,7 +6,9 @@ const Advertise = () => {
   const { data: products = [], refetch } = useQuery({
     queryKey: ["showadd"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/getadvertise");
+      const res = await fetch(
+        "https://assignment-12-server-chi.vercel.app/getadvertise"
+      );
       const data = await res.json();
       return data;
     },
@@ -15,9 +17,12 @@ const Advertise = () => {
 
   const handleDeleteAddvertise = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/deleteadvertiseitem/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://assignment-12-server-chi.vercel.app/deleteadvertiseitem/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

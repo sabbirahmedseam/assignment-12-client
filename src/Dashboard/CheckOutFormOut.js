@@ -16,7 +16,7 @@ const CheckOutFormOut = ({ booking }) => {
   console.log(price);
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://assignment-12-server-chi.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ price }),
@@ -68,7 +68,7 @@ const CheckOutFormOut = ({ booking }) => {
         transactionId: paymentIntent.id,
         bookingId: _id,
       };
-      fetch(`http://localhost:5000/payments`, {
+      fetch(`https://assignment-12-server-chi.vercel.app/payments`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
