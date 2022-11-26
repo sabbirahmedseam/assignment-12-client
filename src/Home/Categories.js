@@ -22,7 +22,7 @@ const Categories = () => {
       id: 3,
     },
   ];
-// seam a  d e
+// seam a  d e ew
   return (
     <div className="my-5">
       <h2 className="text-5xl text-center my-12 text-primary font-bold">
